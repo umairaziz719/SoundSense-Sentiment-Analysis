@@ -1,104 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emotion Classification Models</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1em 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 2em auto;
-            padding: 1em;
-        }
-        h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 0.5em;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1em 0;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 0.5em;
-            text-align: left;
-        }
-        th {
-            background: #f4f4f4;
-        }
-        code {
-            background: #f4f4f4;
-            padding: 0.2em;
-            border-radius: 3px;
-        }
-        pre {
-            background: #f4f4f4;
-            padding: 1em;
-            border-radius: 3px;
-            overflow-x: auto;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Emotion Classification Models</h1>
-    </header>
-    <div class="container">
-        <h2 id="summary">Project Summary</h2>
-        <p>This project focuses on emotion detection from audio data using various machine learning models. The primary goal is to build and evaluate different models to classify emotions based on audio features. The dataset used is the TESS (Toronto emotional speech set) dataset, which consists of audio recordings labeled with emotional states.</p>
-        <p>The project includes the following models:</p>
-        <ul>
-            <li><strong>1D Convolutional Neural Network (CNN1D)</strong>: Used for extracting features from the audio signals and achieving high accuracy in emotion classification.</li>
-            <li><strong>Long Short-Term Memory (LSTM)</strong>: A type of Recurrent Neural Network (RNN) designed to handle sequential data, such as audio signals, to capture temporal dependencies.</li>
-            <li><strong>Gated Recurrent Unit (GRU)</strong>: Another RNN variant that improves training efficiency and performance by using gating mechanisms to control information flow.</li>
-            <li><strong>Support Vector Machine (SVM)</strong>: A classical machine learning model used for classification tasks, which has shown competitive performance in emotion detection.</li>
-        </ul>
+```markdown
+# SoundSense:Emotion Detection
 
-        <h2 id="installation">Installation</h2>
-        <p>To run the models and evaluate them, you'll need the following dependencies:</p>
-        <ul>
-            <li>Python 3.8 or higher</li>
-            <li>TensorFlow 2.x</li>
-            <li>scikit-learn</li>
-            <li>pandas</li>
-            <li>numpy</li>
-        </ul>
-        <p>You can install the required packages using <code>pip</code>:</p>
-        <pre><code>pip install tensorflow scikit-learn pandas numpy</code></pre>
+## Project Summary
 
-        <h2 id="dataset">Dataset</h2>
-        <p>The dataset used for training and evaluating these models consists of emotional labels. The dataset should be in CSV format with features and labels. Ensure you preprocess and split the dataset into training and validation sets before running the models.</p>
+This project focuses on emotion detection from audio data using various machine learning models. The goal is to classify emotions based on audio features from the TESS (Toronto Emotional Speech Set) dataset, which consists of emotional speech recordings.
 
-        <h2 id="models">Models</h2>
-        <h3>CNN1D</h3>
-        <p>A 1D Convolutional Neural Network (CNN1D) is used for feature extraction from the input data. This model achieved:</p>
-        <ul>
-            <li><strong>Best Validation Accuracy:</strong> 99.58%</li>
-            <li><strong>Final Training Accuracy:</strong> 99.66%</li>
-            <li><strong>Final Validation Accuracy:</strong> 99.58%</li>
-            <li><strong>Best Validation Loss:</strong> 0.1293</li>
-        </ul>
-        <h4>Model Architecture</h4>
-        <pre><code>
+## Installation
+
+To get started with this project, you'll need the following dependencies:
+
+- Python 3.8 or higher
+- TensorFlow 2.x
+- scikit-learn
+- pandas
+- numpy
+
+You can install the required packages using pip:
+
+```bash
+pip install tensorflow scikit-learn pandas numpy
+```
+
+## Dataset
+
+The dataset used for training and evaluating the models is the TESS dataset, which contains emotional labels. Ensure you preprocess the dataset and split it into training and validation sets before running the models. The dataset should be in CSV format with features and labels.
+
+## Models
+
+### 1D Convolutional Neural Network (CNN1D)
+
+The CNN1D model is used for feature extraction from audio signals. The architecture is as follows:
+
+```
 Model: "sequential_11"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -169,11 +102,13 @@ Total params: 1002311 (3.82 MB)
 Trainable params: 999623 (3.81 MB)
 Non-trainable params: 2688 (10.50 KB)
 _________________________________________________________________
-        </code></pre>
+```
 
-        <h3>LSTM</h3>
-        <p>A Long Short-Term Memory (LSTM) network processes sequential data. The model's architecture is as follows:</p>
-        <pre><code>
+### Long Short-Term Memory (LSTM)
+
+The LSTM model processes sequential data to capture temporal dependencies. The architecture is:
+
+```
 Model: "sequential_5"
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
 ┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
@@ -218,11 +153,13 @@ Model: "sequential_5"
  Total params: 143,367 (560.03 KB)
  Trainable params: 142,599 (557.03 KB)
  Non-trainable params: 768 (3.00 KB)
-        </code></pre>
+```
 
-        <h3>GRU</h3>
-        <p>A Gated Recurrent Unit (GRU) model was also implemented. The model's architecture is as follows:</p>
-        <pre><code>
+### Gated Recurrent Unit (GRU)
+
+The GRU model is an efficient RNN variant. The architecture is:
+
+```
 Model: "sequential_3"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -236,7 +173,9 @@ _________________________________________________________________
                                                                  
  gru_10 (GRU)                (None, 162, 128)          148224    
                                                                  
- batch_normalization_13 (Ba  (None, 162, 128)          512       
+ batch_normalization_13 (Ba  (None, 162, 128
+
+)          512       
  tchNormalization)                                               
                                                                  
  dropout_13 (Dropout)        (None, 162, 128)          0         
@@ -262,69 +201,44 @@ Total params: 425095 (1.62 MB)
 Trainable params: 423175 (1.61 MB)
 Non-trainable params: 1920 (7.50 KB)
 _________________________________________________________________
-        </code></pre>
+```
 
-        <h2 id="results">Results</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Model</th>
-                    <th>Final Accuracy</th>
-                    <th>Final Log Loss</th>
-                    <th>Precision (Overall)</th>
-                    <th>Recall (Overall)</th>
-                    <th>F1-Score (Overall)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>CNN1D</td>
-                    <td>99.58%</td>
-                    <td>0.1293</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>LSTM</td>
-                    <td>77.86%</td>
-                    <td>0.7029</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>GRU</td>
-                    <td>87.56%</td>
-                    <td>0.1687</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>SVM</td>
-                    <td>96.90%</td>
-                    <td>0.0956</td>
-                    <td>96.92%</td>
-                    <td>96.90%</td>
-                    <td>96.91%</td>
-                </tr>
-            </tbody>
-        </table>
+## Results
 
-        <h2 id="usage">Usage</h2>
-        <p>To train and evaluate the models, follow these steps:</p>
-        <ol>
-            <li>Clone this repository:</li>
-            <pre><code>git clone https://github.com/yourusername/emotion-classification.git
-cd emotion-classification</code></pre>
-            <li>Prepare your dataset and ensure it's in the correct format.</li>
-            <li>Run the model training scripts. For example, to train the CNN1D model:</li>
-            <li>Evaluate the models using the provided evaluation scripts.</li>
-        </ol>
+| Model | Final Accuracy | Final Log Loss | Precision (Overall) | Recall (Overall) | F1-Score (Overall) |
+|-------|----------------|----------------|---------------------|------------------|--------------------|
+| CNN1D | 99.58%         | 0.1293         | -                   | -                | -                  |
+| LSTM  | 77.86%         | 0.7029         | -                   | -                | -                  |
+| GRU   | 87.56%         | 0.1687         | -                   | -                | -                  |
+| SVM   | 96.90%         | 0.0956         | 96.92%              | 96.90%           | 96.91%             |
 
-        <h2 id="license">License</h2>
-        <p>This project is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for details.</p>
-    </div>
-</body>
-</html>
+## Usage
+
+To train and evaluate the models, follow these steps:
+
+1. Clone this repository:
+
+    ```bash
+    git clone https://github.com/umairaziz719/SoundSense-Sentiment-Analysis.git
+    ```
+
+2. Prepare your dataset and ensure it's in the correct format.
+
+3. Run the model training scripts.
+
+4. Evaluate the models using the provided evaluation scripts.
+
+## License
+
+This project is licensed under the Creative Common License.
+```
+
+### Key Sections:
+- **Project Summary**: Briefly describes the project's goal.
+- **Installation**: Lists dependencies and installation commands.
+- **Dataset**: Instructions for preparing the dataset.
+- **Models**: Details the architectures of CNN1D, LSTM, and GRU models.
+- **Results**: A table summarizing the performance of each model.
+- **Usage**: Instructions for cloning the repo, preparing the dataset, and running training scripts.
+- **License**: Licensing information.
+
